@@ -1,0 +1,45 @@
+<div class="cart-container">
+    <!-- Part 1: Subtotal and Checkout -->
+    <div class="cart-summary">
+      <div class="subtotal"> <span class="label">Subtotal:</span><span>{{calculateSubtotal() | number:'1.2-2' }} EGP</span></div>
+      <button class="checkout-button" (click)="checkout()">Checkout</button>
+    </div>
+  
+    <!-- Part 2: Product List -->
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <div class="product-card">
+        <div class="prod-img-info">
+             <img class="product-image" [src]="item.product.imageUrl" alt="{{ item.product.name }}">
+             <div class="prod-info">
+                  <p class="name">{{ item.product.name }}</p>
+                  <p class="price">{{ displayUnitPricePerWeight(item) }}</p>
+                  <div class="quantity-controls">
+                       <button id="minus" (click)="removeOne(item)">-</button>
+                       <span id="qty">{{ item.quantity }}</span>
+                       <button id="plus" (click)="addOne(item)">+</button>
+                  </div>
+             </div>
+        </div>
+      
+      <!-- Product Actions: Remove & Add to Wishlist -->
+      <div class="product-actions">
+        <a class="remove" (click)="removeItemCompletely(item)">Remove</a> 
+        <a class="wish" (click)="addToWishlist(item.product)">Add to Wishlist</a>
+      </div>
+    </div>
+  </div>
+  <div class="cart-summary">
+    <div class="subtotal"> <span class="label">Subtotal:</span><span>{{calculateSubtotal() | number:'1.2-2' }} EGP</span></div>
+    <div class="subtotal tax"> <span class="label">Tax:</span><span>Included</span></div>
+    <div class="subtotal order"> <span class="label">Order Total:</span><span>{{calculateSubtotal() | number:'1.2-2' }} EGP</span></div>
+  </div>
+    <!-- Empty Cart Message -->
+    <div *ngIf="cartItems.length === 0" class="empty-cart">
+      <p>Your cart is empty.</p>
+    </div>
+    
+    <!-- Overlay to dim the rest of the screen when the cart is open -->
+    <div class="overlay" [ngClass]="{ 'show': isCartOpen }" (click)="closeCart()"></div>
+  
+</div>
+

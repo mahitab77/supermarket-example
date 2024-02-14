@@ -1,0 +1,98 @@
+
+.custom-navbar{
+  margin-top:30px;
+  width:99%;
+  display:flex;
+  flex-direction: column;
+}
+
+#topbar ul{
+
+  display:flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  list-style-type: none;
+}
+.nav-item .btn {
+  background-color: lightgrey; 
+  font-size: 14px;
+  color: black; 
+  margin-right: 7px; 
+  border-radius: 0px;
+  height: 35px;
+}
+
+/* Active state for category buttons */
+.nav-item .btn.active, .nav-item .btn:focus {
+  background-color: orange;
+  color: white; 
+}
+
+#carticon{
+  position: relative;
+  margin-left: 15px;
+}
+.cart-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%; 
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000; 
+  width: 600px; 
+  overflow: hidden; 
+}
+
+.nav-link .badge {
+  position: absolute;
+  top: -10px; 
+  right: -10px; 
+  background-color: rgb(255, 221, 0);
+  color: black; 
+  
+}
+/**********************/
+#bottom-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px; 
+  border-bottom:1px solid lightgrey;
+}
+
+.navbar-display {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+.navbar-display ul{
+  list-style: none;
+  display:flex;
+  flex-direction: row;
+}
+.view-icon {
+  margin-left: 15px;
+  cursor: pointer;
+  color: grey; /* Default color for view icons */
+}
+
+.view-icon.active {
+  color: green; /* Active color for selected view icon */
+}
+
+.sort-dropdown {
+  display: flex;
+  align-items: center;
+}
+.sort-dropdown span {
+  margin-right: 10px;
+ }
+
+ 
+.dropdown-toggle {
+  background-color: transparent !important; 
+  color: rgb(45, 129, 45) !important; 
+  font-weight: 500;
+  border: none !important; 
+}

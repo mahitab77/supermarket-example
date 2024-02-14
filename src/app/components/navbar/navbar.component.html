@@ -1,0 +1,69 @@
+<nav class="custom-navbar">
+    <div id="topbar" >
+        <div>
+          <ul>
+              <!-- Static Category Buttons -->
+              <li class="nav-item">
+                  <button type="button" class="btn" [ngClass]="{'active': selectedCategory === 'All'}" (click)="filterProducts('All')">All</button>
+              </li>
+              <li class="nav-item">
+                  <button type="button" class="btn" [ngClass]="{'active': selectedCategory === 'Food'}" (click)="filterProducts('Food')">Food</button>
+              </li>
+              <li class="nav-item">
+                  <button type="button" class="btn" [ngClass]="{'active': selectedCategory === 'Non Food'}" (click)="filterProducts('Non Food')">Non-Food</button>
+              </li>
+              <li class="nav-item">
+                  <button type="button" class="btn" [ngClass]="{'active': selectedCategory === 'Fashion & Linen'}" (click)="filterProducts('Fashion & Linen')">Fashion & Linen</button>
+              </li>
+              <!-- Cart Icon with Item Count -->
+              <li id="carticon" class="nav-item">
+                <a class="nav-link" (click)="toggleCartDropdown()">
+                
+                  <i class="fas fa-shopping-cart"></i>
+                  <span class="badge badge-pill">{{ cartItemCount }}</span>
+                </a>
+                
+                <!-- Conditionally render CartComponent as a dropdown -->
+                <div *ngIf="isCartDropdownVisible" class="cart-dropdown">
+                      <app-cart></app-cart> <!-- Make sure the selector matches your CartComponent -->
+                </div>
+              </li>  
+          </ul>
+        </div>
+    </div>
+
+
+
+    <!-- Bottom Navbar -->
+    <div id="bottom-navbar">
+        <div class="navbar-display">
+            <!-- Displayed Products Count -->
+            <span>{{ displayedProductsCount }} products found</span>
+            <!-- View Icons -->
+            <ul>
+                <li class="nav-item">
+                    <i class="fas fa-th-large view-icon" [ngClass]="{ 'active': viewMode === 'grid' }" (click)="setViewMode('grid')"></i>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-list view-icon" [ngClass]="{ 'active': viewMode === 'list' }" (click)="setViewMode('list')"></i>
+                </li>
+            </ul>
+        </div>
+        <!-- Sort By Dropdown with label -->
+        <div class="sort-dropdown">
+            <span>Sort By</span>
+            <div class="dropdown">
+               <button class="dropdown-toggle" type="button" id="sortByDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Newest First
+               </button>
+               <div class="dropdown-menu" aria-labelledby="sortByDropdown">
+                    <a class="dropdown-item"  (click)="sortBy('newest')">Newest First</a>
+                    <a class="dropdown-item"  (click)="sortBy('price')">Price</a>
+                    <a class="dropdown-item"  (click)="sortBy('name')">Name</a>
+               </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+  

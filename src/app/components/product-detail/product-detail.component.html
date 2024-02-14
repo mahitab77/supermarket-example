@@ -1,0 +1,45 @@
+<div class="product-detail-container" *ngIf="productDetails">
+    <div class="product-image">
+      <!-- Product image here -->
+      <img [src]="productDetails.imageUrl" alt="Product Image">
+    </div>
+    <div class="product-info">
+      <h2>{{ productDetails.name }}</h2>
+      <a>{{ productDetails.subcategory }}</a>
+      <p class="product-price">Price: {{ calculatePrice(selectedWeight) | currency:'EGP':'symbol':'1.2-2'}}</p>
+      
+      <p *ngIf="productDetails.weight !== null" class="grocery-weight-container">
+        <label for="weight-select">Grocery Weight:</label>
+        <select [(ngModel)]="selectedWeight" (change)="resetQuantity()">
+          <option value="250">250gm</option>
+          <option value="500">500gm</option>
+          <option value="750">750gm</option>
+          <option value="1000">1kg</option>
+        </select>
+      </p>
+      <p *ngIf="productDetails.width != null && productDetails.length != null">Size: {{ productDetails.width }} x {{ productDetails.length }}</p>
+
+      <div class="quantity-input">
+        <P>Quantity:</P>
+        <div class="qty-btn-tcart">
+            <button id="minus" (click)="decrementQuantity()">-</button>
+            <input type="number" [(ngModel)]="quantity" #quantityInput>
+            <button id="plus" (click)="incrementQuantity()">+</button>
+            <div class="quantity-indicator" *ngIf="showQuantityIndicator">
+              <span>{{ quantity }}</span>
+            </div>
+            <button class="add-to-cart-btn" (click)="addToCart()">Add to Cart</button>
+        </div>
+      </div>
+      
+      <p>
+        <i class="far fa-clock"></i>
+        <span class="delivery-text">
+          Delivered Within: <span class="delivery-timing">{{ isFoodCategory() ? 'the same' : 'as soon as possible' }}</span> Day
+        </span>
+      </p>
+      
+      <p class="store-info"><img id="logo" title="logo" src="assets/images/logo.png"> Sold and delivered by Spinneys</p>
+    </div>
+  </div>
+  

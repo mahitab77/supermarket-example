@@ -1,0 +1,61 @@
+[
+    {
+      "id": 1,
+      "name": "Spinneys Value Sponge For Glass Cookware",
+      "price": 3.95,
+      "category": "Non Food",
+      "imageUrl": "assets/images/328465.webp"
+    },
+    {
+      "id": 2,
+      "name": "Spinneys Black eyed peas,500 gm",
+      "price": 14.25,
+      "weight":500,
+      "category": "Food",
+      "imageUrl": "assets/images/black-eyed-peas.webp"
+    },
+    
+    {
+      "id": 3,
+      "name": "abu auf alkafilah qamar eldin",
+      "price": 34.95,
+      "weight": 500,
+      "category": "Food",
+      "imageUrl": "assets/images/qamar.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Spinneys sliced pineapple,820 gm",
+      "price": 54.95,
+      "weight": 820,
+      "category": "Food",
+      "imageUrl": "assets/images/pinea.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Spinneys Value grooved Sponge Scrubber,3pcs",
+      "price": 15.95,
+      "category": "Non Food",
+      "imageUrl": "assets/images/3psponge.webp"
+    },
+    {
+      "id": 6,
+      "name": "Spinneys supreme aluminuim Foil (40*45)",
+      "price": 114.95,
+      "length": 40,
+      "width": 45,
+      "category": "Non Food",
+      "imageUrl": "assets/images/foil.webp"
+    },
+    {
+      "id": 7,
+      "name": "Halwani smoked Roast Turkey ,by weigh",
+      "price": 67.49,
+      "weight": 250,
+      "category": "Food",
+      "subcategory":"Cold Cuts",
+      "imageUrl": "assets/images/halwani.png"
+    }
+    
+  ]
+  

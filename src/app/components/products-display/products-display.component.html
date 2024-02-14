@@ -1,0 +1,22 @@
+<div [class.grid-view]="viewMode === 'grid'" [class.list-view]="viewMode === 'list'">
+    <div class="products-container">
+        <!-- Loop through filteredProducts to display product cards -->
+        <div *ngFor="let product of filteredProducts" class="product-card">
+            <i class="far fa-heart heart-icon"></i>
+            <img [src]="product.imageUrl" alt="{{ product.name }}" (click)="openProductDetail(product.id)">
+            <h2>{{ product.name }}</h2>
+            <p class="product-price">Price: EGP {{ product.price }}</p>
+            <!-- Add to Cart Button for each product -->
+            <button type="button" class="add-to-cart-btn" (click)="addToCart(product)">
+            Add to Cart
+            <!-- This assumes you have a way to track quantity in cart for each product -->
+            <span class="quantity-indicator" *ngIf="getQuantity(product.id) > 0">{{ getQuantity(product.id) }}</span>
+            </button>
+        </div>
+  
+        <!-- Display a message if there are no products in the filteredProducts array -->
+        <div *ngIf="filteredProducts.length === 0" class="no-products-message">
+          There are no products in this category.
+        </div>
+    </div>
+</div>
